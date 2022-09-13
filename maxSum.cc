@@ -9,6 +9,7 @@ int main () {
     int dim = 11; 
     cout << maxsum4 (A,dim) << endl; 
     cout << "lol" << endl; 
+    cout << "ciao tutto bene" << endl; 
 
     return 0; 
 }

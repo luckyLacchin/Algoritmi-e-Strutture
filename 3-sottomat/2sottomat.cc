@@ -12,6 +12,7 @@ int main () {
     sol = 0; 
     in >> row;
     in >> column;  
+	cout << "ciao" << endl;	
     int **matrix = new int *[row]; 
     for (int i = 0; i < row; i++) {
         matrix [i] = new int [column]; 

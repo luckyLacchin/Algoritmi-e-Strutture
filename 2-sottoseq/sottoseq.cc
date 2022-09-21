@@ -19,6 +19,7 @@ int main () {
     }
     int max = maxSubStr (A,dim); 
     out << max << "\n"; 
+    cout << "nuova modifica" << endl;
     in.close();
     out.close(); 
     delete [] A; 

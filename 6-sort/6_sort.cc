@@ -28,6 +28,7 @@ int main () {
 
     in.close(); 
     out.close();
+    delete array;
 }
 
 void printArray (int *array, int n) {
@@ -57,23 +58,22 @@ void merge (int *array, int first, int middle, int last) {
     int j = middle+1; 
     int k = 0;
     while (k < last-first+1) {
-
-        if (j > last || array[i] <= array[j]) {
+        if ((i <= middle) && (j > last || array[i] <= array[j])) {
             temp[k] = array[i];
             ++i;
         }
-        else if (i > middle || array[i] > array[j]) {
+        else if ((j <= last) && (i > middle || array[i] > array[j])) {
             temp[k] = array[j]; 
             ++j;
         }
 
         ++k; 
     }
-    printArray (temp,last-first-1);
     int l = first;
     for(int m = 0; m < last-first+1;m++) {
         array[l] = temp[m];
         ++l;
     }
+    delete temp;
 
 }

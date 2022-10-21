@@ -3,47 +3,57 @@
 
 using namespace std; 
 
-int n;
 
-void sort (int *array, int first, int last); 
-void printArray (int *array, int n);
-void merge (int *array, int first, int middle, int last);
+void mergeSort (int *array, int first, int last); 
+void merge (int *array, int first, int middle, int last); 
 
 int main () {
 
     ifstream in ("input.txt"); 
     ofstream out ("output.txt");
-    int i = 0;
+    int n,inizio,fine; 
     in >> n;
-    int *array = new int [n]; 
-    while (in >> array[i]) {
+    int *start = new int [n]; 
+    int *end = new int [n];
+    int i = 0;
+    while ((in >> start[i]) && (in >> end[i])) {
         ++i;
     }
-    printArray(array,n); 
-    sort(array,0, n-1); 
-    printArray(array,n); 
-    for (int i = 0; i < n; i++) {
-        out << array[i] << " ";
+    mergeSort(start,0,n-1);
+    mergeSort(end,0,n-1);
+    int j = 0, temp = 0;
+    int max = temp; 
+    while (j < n-1) {
+        if (start[j+1] > end[j]) {
+            temp = start[j+1] - end[j];
+            if (temp>max) {
+                max = temp; 
+                inizio = end[j];
+                fine = start[j+1];
+            }
+        }
+        ++j;
+
     }
+    if (max != 0) {
+        out << inizio << " " << fine << endl;
+    }
+    else 
+        out << 0;
 
     in.close(); 
-    out.close();
-    delete []array;
+    out.close(); 
+    delete []start;
+    delete []end;
+    return 0;
 }
 
-void printArray (int *array, int n) {
-    for (int i = 0; i < n; i++) {
-        cout << array[i] << " "; 
-    }
-    cout << endl; 
-}
-
-void sort (int *array, int first, int last) {
+void mergeSort (int *array, int first, int last) {
 
     int middle = (first + last) / 2; 
     if (first < last) {
-        sort(array,first,middle);
-        sort(array,middle+1,last);
+        mergeSort(array,first,middle);
+        mergeSort(array,middle+1,last);
         merge (array,first,middle,last); 
     }
     else {

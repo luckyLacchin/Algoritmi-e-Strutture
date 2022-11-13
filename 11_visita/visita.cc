@@ -79,3 +79,5 @@ void ccdfs (vector<vector<node*>> adj,node* u, int &res) {
     else {
     }
 }
+//il problema qui è che ho fatto un nodo diverso per anche nodi uguali! Dovrei fare prima 
+//una lista di tutti i nodi e dopo prenderli uno ad uno per fare la lista di adiacenza

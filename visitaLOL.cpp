@@ -4,15 +4,10 @@
 
 using namespace std;
 
-struct node {
-    int n; 
-    bool visitato = false;
-};
-
 int cc (vector <vector <int>> adj,vector <int> temp, int partenza,int nodi);
-void ccdfs (vector<vector<node*>> adj,node* u, int &res);
+void ccdfs (vector<vector<int>> adj, int *id,int u,int &res);
 int main () {
-    vector <vector <node *>> adj;
+    vector <vector <int>> adj;
     int temp;
     ifstream in ("input.txt"); 
     ofstream out ("output.txt");
@@ -20,21 +15,21 @@ int main () {
     in >> nodi;
     in >> archi;
     in >> partenza;
-    node *a = new node();
-    node *b = new node();
-    node *start = new node();
-    start->n = partenza;
+    int a,b;
     adj.resize(nodi);
-    while (in >> a->n && in >> b->n){
-        cout << "a = " << a->n << " b = " << b->n << endl; 
-        adj[a->n].push_back(b);
-        a = new node();
-        b = new node();
+    while (in >> a && in >> b){
+        cout << "a = " << a << " b = " << b << endl; 
+        adj[a].push_back(b);
+    }
+    int *id = new int [nodi];
+    for (int i = 0; i < nodi; i++) {
+        id[i] = 0;
     }
     int res = 0;
-    ccdfs (adj,start,res);
+    ccdfs (adj,id,partenza,res);
     res += 1;
     out << res;
+    delete [] id;
     return 0;
 }
 /*
@@ -63,19 +58,17 @@ int cc (vector <vector <int>> adj,vector <int> temp, int partenza, int nodi) {
 }
 */
 
-void ccdfs (vector<vector<node*>> adj,node* u, int &res) {
-    
-    if (u->visitato == false) {
-        u->visitato = true;
-        
-        for (int i = 0; i < adj[u->n].size(); i++) {
-            if (adj[u->n][i]->visitato == false) {
-                cout << "u.n = " << adj[u->n][i]->n << endl;
-                res +=  1; 
-            }
-            ccdfs (adj,adj[u->n][i],res);
+void ccdfs (vector<vector<int>> adj,int *id,int u,int &res) {
+    int c = -1;
+    id[u] = 1;
+    cout << adj[u].size() << endl;
+    for (int i = 0; i < adj[u].size(); i++) {
+        c = adj[u][i];
+        cout << "c1 = " << c << endl;
+        if (id[c] == 0) {
+            cout << "c = " << c << endl;
+            res += 1;
+            ccdfs (adj,id,c,res);
         }
-    }
-    else {
     }
 }

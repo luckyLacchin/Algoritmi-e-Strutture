@@ -38,7 +38,7 @@ void printGraph(Graph const &graph, int n)
     for (int i = 0; i < n; i++)
     {
         // print the current vertex number
-        cout << i << " ——> ";
+        cout << i << " -> ";
  
         // print all neighboring vertices of a vertex `i`
         for (int v: graph.adjList[i]) {

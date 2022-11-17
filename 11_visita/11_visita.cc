@@ -8,7 +8,7 @@ using namespace std;
 
 //int cc (vector <vector <int>> adj, vector <int> lista, int partenza,int nodi);
 void ccdfs (vector<vector<int>> adj, int u, int *id, int &res);
-void dfs (vector<vector<int>> adj, int u);
+int dfs (vector<vector<int>> adj, int u);
 
 
 int main () {
@@ -33,9 +33,11 @@ int main () {
     }
 
 
-    int res = 0;
+    /*int res = 0;
     ccdfs (adj,partenza,id,res);
     ++res;
+    */
+    int res = dfs(adj,partenza);
     out << res;
     delete [] id;
     return 0;
@@ -54,9 +56,25 @@ void ccdfs (vector<vector<int>> adj, int u, int *id, int &res) {
 
 }
 
-void dfs (vector<vector<int>> adj, int u) {
+int dfs (vector<vector<int>> adj, int r) {
     
     stack <int> s;
-    
-    
+    s.push(r);
+    int res = 0; 
+    bool *visited = new bool [adj.size()]; 
+    for (int i = 0; i < adj.size(); i++) {
+        visited[i] = false;
+    }
+    while (!s.empty()) {
+        int u = s.top();
+        s.pop();
+        if (visited[u] == false) {
+            visited[u] = true;
+            ++res;
+            for (int i = 0; i < adj[u].size(); i++) {
+                s.push(adj[u][i]);
+            }
+        }
+    }
+    return res;
 }

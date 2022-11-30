@@ -23,7 +23,6 @@ int main () {
         in >> a;
         in >> b;
         g[a].push_back(b);
-        g[b].push_back(a);
     }
     if (start != finish){
         distance (g,start,finish,nodi, path, num);

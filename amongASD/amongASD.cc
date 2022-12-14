@@ -6,12 +6,12 @@ using namespace std;
 
 
 
-void distance (vector<vector<int>> adj, int r) {
+void distance (vector <vector <pair<int,int>>> g, int r) {
     vector <int> distance;
-    distance.resize (adj.size());
+    distance.resize (g.size());
     queue <int> q;
     q.push (r);
-    for (int i = 0; i < adj.size(); i++) {
+    for (int i = 0; i < g.size(); i++) {
         if (i != r) {
             distance[i] = -1;
         }
@@ -20,10 +20,11 @@ void distance (vector<vector<int>> adj, int r) {
     while (!q.empty()) {
         int u = q.front();
         q.pop();
-        for (int v: adj[u]) {
-            if (distance[v] == -1) {
-                distance[v] = distance[v] + 1;
-                q.push(v);
+        for (pair<int,int> v: g[u]) {
+            int i = v.first;
+            if (distance[i] == -1) {
+                distance[i] = distance[i] + 1;
+                q.push(i);
             }
         }
     }

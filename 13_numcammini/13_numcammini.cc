@@ -23,7 +23,6 @@ int main () {
         in >> a;
         in >> b;
         g[a].push_back(b);
-        g[b].push_back(a);
     }
     if (start != finish){
         distance (g,start,finish,nodi, path, num);
@@ -54,16 +53,19 @@ void distance (vector<vector<int>> &g, int start, int finish, int nodi, int &pat
     while (!q.empty()) {
         int u = q.front();
         q.pop();
+        //for(int v: g[u])
         for (int i = 0; i < g[u].size(); i++) {
             if (distance[g[u][i]][0] == -1) { 
                     distance[g[u][i]][0] = distance[u][0] + 1;
                     q.push(g[u][i]);
                     ++distance[g[u][i]][1];
             }
+            /*
             else if ((distance[u][0]+1) < distance[g[u][i]][0]) {
                 distance[g[u][i]][1] = 1;
                 distance[g[u][i]][0] = distance[u][0] + 1; //credo che questo non possa accedere
             }
+            */
             else if ((distance[u][0]+1) == distance[g[u][i]][0]) {
                 ++distance[g[u][i]][1];
                 q.push(g[u][i]);

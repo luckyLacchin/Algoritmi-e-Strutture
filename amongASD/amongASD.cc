@@ -6,7 +6,7 @@ using namespace std;
 
 
 
-void distance (vector <vector <pair<int,int>>> g, int r) {
+void distance (vector <vector <pair<int,pair<int,int>>>> g, int r) {
     vector <int> distance;
     distance.resize (g.size());
     queue <int> q;
@@ -20,7 +20,7 @@ void distance (vector <vector <pair<int,int>>> g, int r) {
     while (!q.empty()) {
         int u = q.front();
         q.pop();
-        for (pair<int,int> v: g[u]) {
+        for (pair<int,pair<int,int>> v: g[u]) {
             int i = v.first;
             if (distance[i] == -1) {
                 distance[i] = distance[i] + 1;
@@ -32,17 +32,30 @@ void distance (vector <vector <pair<int,int>>> g, int r) {
 
 int main () {
 
-    vector <vector <pair<int,int>>> g;
+    vector <vector <pair<int,pair<int,int>>>> g;
     vector <int> temp;
     ifstream in ("input.txt"); 
     ofstream out ("output.txt");
-    int size, semplici, vent, I, S, F, a, b, c;
-    in >> size >> semplici >> vent >> I >> S >> F;
-    g.resize(size);
-    temp.resize(semplici+vent);
-    while (in >> a && in >> b && in >> c) {
-        g[a].push_back({b,c});
+    int N, M, K, I, S, F, a, b, c,d,index = 0;
+    in >> N >> M >> K >> I >> S >> F;
+    g.resize(N);
+    temp.resize(M+K);
+    while(index < M) {
+        in >> a;
+        in >> b;
+        in >> c;
+        g[a].push_back({b,{c,0}});
+        index++;
     }
+    index = 0;
+    while (index < K) {
+        in >> a;
+        in >> b;
+        in >> c;
+        in >> d;
+        g[a].push_back({b,{c,d}});
+    }
+
 
 
     return 0; 

@@ -51,7 +51,7 @@ void distance (vector<vector<int>> adj, int r) {
         q.pop();
         for (int v: adj[u]) {
             if (distance[v] == -1) {
-                distance[v] = distance[v] + 1;
+                distance[v] = distance[u] + 1;
                 q.push(v);
             }
         }

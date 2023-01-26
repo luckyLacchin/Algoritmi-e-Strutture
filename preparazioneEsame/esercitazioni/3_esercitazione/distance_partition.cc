@@ -30,6 +30,7 @@ int main () {
     v1.insert(2);
     v1.insert(3);
     v2.insert(6);
+    v2.insert(5);
     cout << "La minima distanza tra i due insiemi e': " << mindist (g,v1,v2) << endl; 
 
     return 0;

@@ -28,3 +28,30 @@ int dfs (vector<vector<int>> adj, int r) {
     }
     return res;
 }
+
+void dfs_better (vector<vector<int>> adj, int r) {
+    
+    stack <int> s;
+    s.push(r); 
+    vector <bool> visited;
+    visited.resize(adj.size(),false);
+    while (!s.empty()) {
+        int u = s.top();
+        s.pop();
+        if (visited[u] == false) {
+            visited[u] = true;
+            for (int i : adj[u]) {
+                s.push(i);
+            }
+        }
+    }
+}
+
+void dfs_rec (vector<vector<int>> g, int u, vector <bool> visited) {
+    visited[u] = true;
+    for (int v : g[u]) {
+        if (!visited[v]) {
+            dfs_rec(g,v,visited);
+        }
+    }
+}

@@ -37,14 +37,9 @@ void distance (vector<vector<int>> adj, int r) {
 
 void distance (vector<vector<int>> adj, int r) {
     vector <int> distance;
-    distance.resize (adj.size());
+    distance.resize (adj.size(),-1);
     queue <int> q;
     q.push (r);
-    for (int i = 0; i < adj.size(); i++) {
-        if (i != r) {
-            distance[i] = -1;
-        }
-    }
     distance[r] = 0;
     while (!q.empty()) {
         int u = q.front();

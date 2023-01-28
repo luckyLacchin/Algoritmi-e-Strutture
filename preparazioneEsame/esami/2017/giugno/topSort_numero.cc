@@ -116,3 +116,4 @@ vector<vector<int>> transpose(vector<vector<int>> &g) {
     }
     return gt;
 }
+/*guarda giugno 2017 per soluzione bella*/

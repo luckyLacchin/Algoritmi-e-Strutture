@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 int navi(int n, vector<int> V);
 int navi_rec (vector<int> V, int p, int n);
-int trasformation (vector<int> v, int n);
+int trasformation (vector<int> &v, int n);
+void distance (vector<vector<int>> adj, int r, vector <int> &distance);
 
 
 int main () {
@@ -49,9 +51,9 @@ int navi_rec (vector<int> v, int p, int n) {
     return 0;
 }
 
-/*dovevo trasformarlo in un grafo e farci erdos!*/
+/*dovevo trasformarlo in un grafo e farci erdos. La soluzione scritta sopra non va bene!*/
 
-int trasformation (vector<int> v, int n) {
+int trasformation (vector<int> &v, int n) {
 
     vector<vector<int>> g;
     g.resize(n*n);
@@ -61,5 +63,25 @@ int trasformation (vector<int> v, int n) {
                 g[i].push_back(v[i+j]);
         }
     }
-    /*a questo punto mandi erdos ecc..*/
+
+    vector <int> distance;
+    return distance[n*n-2];
+
+}
+
+void distance (vector<vector<int>> adj, int r, vector <int> &distance) {
+    distance.resize (adj.size(),-1);
+    queue <int> q;
+    q.push (r);
+    distance[r] = 0;
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for (int v: adj[u]) {
+            if (distance[v] == -1) {
+                distance[v] = distance[u] + 1;
+                q.push(v);
+            }
+        }
+    }
 }

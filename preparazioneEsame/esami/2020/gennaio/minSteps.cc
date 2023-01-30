@@ -1,0 +1,1 @@
+/*ho fatto sia l'esercizio 1 che 2 a mano!*/

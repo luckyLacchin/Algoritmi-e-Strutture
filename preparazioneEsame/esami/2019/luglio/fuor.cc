@@ -24,4 +24,4 @@ int main () {
 bool four (vector<int> a,int n,int k) {
 
 }
-/* guarda soluzione http://disi.unitn.it/~montreso/asd/compiti/19-07-18.soluzione.pdf*/
+/* guarda soluzione http://disi.unitn.it/~montreso/asd/compiti/19-07-18.soluzione.pdf */

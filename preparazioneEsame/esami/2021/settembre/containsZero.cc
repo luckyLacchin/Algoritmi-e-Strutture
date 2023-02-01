@@ -41,3 +41,5 @@ bool containsZero (vector<int> a, int n) {
     }
     return false;
 }
+
+/*il secondo esercizio molto interessante isSquare: http://disi.unitn.it/~montreso/asd/compiti/21-08-31.soluzione.pdf , http://disi.unitn.it/~montreso/asd/compiti/21-08-31.compito.pdf */

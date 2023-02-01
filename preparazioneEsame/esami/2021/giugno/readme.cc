@@ -1,0 +1,1 @@
+/*Infatti entrambi a mano, ma molto interessante il secondo esercizio sull'albero completo e uso dell'heap, ecco i due link (soluzioni e compito): http://disi.unitn.it/~montreso/asd/compiti/21-06-16.soluzione.pdf , http://disi.unitn.it/~montreso/asd/compiti/21-06-16.compito.pdf*/

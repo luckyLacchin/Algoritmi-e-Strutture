@@ -1,0 +1,1 @@
+/*ho fatto entrambi gli esercizi a mano, il primo fatto sul sortK (uso della priorityQueue) è molto interessante, qui le soluzioni: http://disi.unitn.it/~montreso/asd/compiti/21-07-26.soluzione.pdf (testo: http://disi.unitn.it/~montreso/asd/compiti/21-07-26.compito.pdf)*/

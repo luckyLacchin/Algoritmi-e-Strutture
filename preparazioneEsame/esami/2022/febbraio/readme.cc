@@ -1,1 +1,1 @@
-/*recuperati le correzioni dell esercizio A3*/
+/*recuperati le correzioni dell esercizio A3: http://disi.unitn.it/~montreso/asd/compiti/22-02-07.compito.pdf , http://disi.unitn.it/~montreso/asd/compiti/22-02-07.soluzione.pdf*/

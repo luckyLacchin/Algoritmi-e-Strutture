@@ -13,7 +13,7 @@ void ccdfs_rec (vector<vector<int>> adj, int u, int *id, int &res) {
     for (int i = 0; i < adj[u].size(); i++) {
         if (id[adj[u][i]] == 0) {
             ++res;
-            ccdfs (adj,adj[u][i],id,res);
+            ccdfs_rec (adj,adj[u][i],id,res);
         }
     }
 

@@ -40,7 +40,7 @@ int sottoseq_aux (vector <char> &buffer, char s[], vector <int> &DP, int i, int 
             if(buffer[i] == s[j]) {
                 if (j == 0) {
                     cout << "trovato!" << endl;
-                    DP[i] = 1;
+                    DP[i] = 1  + DP[i+1];
                 }
                 else {
                     DP[i] = sottoseq_aux(buffer,s,DP,i-1,j-1) + sottoseq_aux(buffer,s,DP,i-1,j);

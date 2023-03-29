@@ -7,16 +7,24 @@ using namespace std;
 
 struct node {
     vector<int> adj;
+    bool before_last = false;
 };
 
 class Compare {
     public:
-        bool operator () (pair<int,int> a, pair <int,int> b) {
-            return a.first < b.first;
+        bool operator () (pair<node,pair<int,int>> a, pair<node,pair<int,int>> b) {
+            if ((a.first.before_last == true) && (b.first.before_last == true))
+                return a.second.first < b.second.first;
+            else if (a.first.before_last == true && b.first.before_last == false)
+                return false;
+            else if (a.first.before_last == false && b.first.before_last == true)
+                return true;
+            else
+                return a.second.first < b.second.first;
         }
 };
 
-int mincover (priority_queue <pair<int,int>,std::vector<pair<int,int>>, Compare> &pq, vector <int> &grades, vector <node> &tree, int nodi);
+int mincover (priority_queue <pair<node,pair<int,int>>,std::vector<pair<node,pair<int,int>>>, Compare> &pq, vector <int> &grades, vector <node> &tree, int nodi);
 
 int main () {
 
@@ -35,10 +43,17 @@ int main () {
         ++grades[p];
         ++grades[f];
     }
-    priority_queue <pair<int,int>,std::vector<pair<int,int>>, Compare> pq;
+    priority_queue <pair<node,pair<int,int>>,std::vector<pair<node,pair<int,int>>>, Compare> pq;
+
+    for (int i = 0; i < nodi; i++) {
+        for (int v  : tree[i].adj) {
+            if (grades[v] == 1)
+                tree[i].before_last = true;
+        }
+    }
     
     for (int i = 0; i < nodi; i++) {
-        pq.push(make_pair(grades[i],i));
+        pq.push(make_pair(tree[i],make_pair(grades[i],i)));
         //cout << "grades["<< i << "] = " << grades[i] << endl;
     } // O(nlogn)
     //cout << endl;
@@ -48,33 +63,28 @@ int main () {
     return 0;
 }
 
-int mincover (priority_queue <pair<int,int>,std::vector<pair<int,int>>, Compare> &pq, vector <int> &grades, vector <node> &tree, int nodi) {
+int mincover (priority_queue <pair<node,pair<int,int>>,std::vector<pair<node,pair<int,int>>>, Compare> &pq, vector <int> &grades, vector <node> &tree, int nodi) {
     
     int count = 0;
     while (!pq.empty()) {
         //cout << "ciaooo" << endl;
-        pair<int,int> temp = pq.top();
-        if (grades[temp.second] == 0) {
-            //cout << "ciaone1" << endl;
+        pair<node,pair<int,int>> temp = pq.top();
+        //cout << "nodo = " << temp.second.second << endl;
+        ++count;
+        pq.pop();
+        for (int i : temp.first.adj) {
+            //cout << "i = " << i << endl; 
+            --grades[i];
+            --grades[temp.second.second];
         }
-        else {
-            //cout << "grades["<< temp.second << "] = " << grades[temp.second] << endl;
-            ++count;
-            pq.pop();
-            vector <int> vicini = tree[temp.second].adj;
-            for (int i = 0; i < vicini.size(); i++) {
-                //cout << "vicini[i] = " << vicini[i] << endl; 
-                --grades[vicini[i]];
-                --grades[temp.second];
-            }
-            pq = priority_queue <pair<int,int>,std::vector<pair<int,int>>, Compare> ();
-            for (int i = 0; i < nodi; i++) {
-                if (grades[i] > 0) {
-                    //cout << "i = " << i << endl;
-                    //cout << "grades1["<< i << "] = " << grades[i] << endl;
-                    pq.push(make_pair(grades[i],i)); //O(logn)
-                }
-            } // O(nlogn)
+        pq = priority_queue <pair<node,pair<int,int>>,std::vector<pair<node,pair<int,int>>>, Compare> ();
+        for (int i = 0; i < nodi; i++) {
+            if (grades[i] > 0) {
+                //cout << "i1 = " << i << endl;
+                //cout << "grades1["<< i << "] = " << grades[i] << endl;
+                //cout << "ciao" << endl;
+                pq.push(make_pair(tree[i],make_pair(grades[i],i))); //O(logn)
+            }// O(nlogn)
         }
     }
     return count;

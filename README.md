@@ -1,55 +1,51 @@
-# 📚 Algoritmi e Strutture Dati - Università di Trento  
+# 📚 Algorithms and Data Structures - University of Trento  
 
-Questo repository contiene appunti, esercizi e implementazioni relative al corso di **Algoritmi e Strutture Dati** seguito presso l'Università di Trento.  
+Welcome to the **Algorithms and Data Structures** repository! 🎯  
 
----
+This repository contains:  
+- **📖 Lecture Notes**  
+- **💻 Code Implementations**  
+- **✅ Exercises and Solutions**  
 
-## 🎯 Obiettivi del corso  
-
-Il corso di **Algoritmi e Strutture Dati** si propone di fornire agli studenti le competenze necessarie per:  
-1. Progettare e analizzare algoritmi efficienti per risolvere problemi complessi.  
-2. Comprendere e utilizzare le principali strutture dati per ottimizzare le prestazioni dei programmi.  
-3. Applicare tecniche avanzate di progettazione algoritmica come programmazione dinamica, algoritmi probabilistici e approcci greedy.  
-4. Affrontare problemi reali tramite algoritmi euristici e di ricerca locale.  
+The content is based on the **Algorithms and Data Structures** course taught at the **University of Trento** and aims to provide a comprehensive guide to mastering algorithms and data structures.
 
 ---
 
-## 📝 Contenuti del corso  
+## 🎯 Course Objectives  
 
-### **Modulo 1 (Primo Semestre)**  
-- **Introduzione agli algoritmi**  
-  Concetti base e motivazione.  
-- **Analisi degli algoritmi**  
-  Misurazione delle prestazioni, complessità temporale e spaziale.  
-- **Tipi di dati e strutture dati di base**  
-  Array, liste, stack, code.  
-- **Alberi**  
-  Struttura e utilizzo, alberi binari e alberi di ricerca binaria.  
-- **Grafi**  
-  Rappresentazione, visita in ampiezza e in profondità, algoritmi di base.  
-- **Set e dizionari**  
-  Utilizzo e implementazione.  
-- **Alberi bilanciati**  
-  AVL, alberi rosso-neri, e altre varianti.  
-- **Tabelle hash**  
-  Implementazione e gestione delle collisioni.  
-- **Divide-and-conquer**  
-  Tecniche di progettazione algoritmica e applicazioni.  
-- **Strutture dati avanzate**  
-  Heaps, strutture persistenti, e altre.  
-
-### **Modulo 2 (Secondo Semestre)**  
-- **Progettazione di algoritmi**  
-  Approcci per la risoluzione di problemi complessi.  
-- **Programmazione dinamica**  
-  Soluzione di problemi suddivisi in sottoproblemi.  
-- **Algoritmi greedy**  
-  Tecniche per costruire soluzioni ottimali passo dopo passo.  
-- **Ricerca locale e backtracking**  
-  Esplorazione di spazi di soluzioni e tecniche per problemi combinatori.  
-- **Algoritmi probabilistici**  
-  Algoritmi basati su tecniche di randomizzazione.  
-- **Algoritmi euristici approssimati**  
-  Strategie per ottenere soluzioni sub-ottimali in tempi ragionevoli.  
+- **Design and analyze efficient algorithms** for solving complex problems.  
+- **Master essential data structures** to optimize program performance.  
+- Apply advanced techniques like **dynamic programming**, **divide-and-conquer**, and **greedy algorithms**.  
+- Tackle real-world problems using **heuristics**, **local search**, and **probabilistic approaches**.  
 
 ---
+
+## 📝 Course Outline  
+
+### **Module 1: Foundations (First Semester)**  
+- **Introduction to Algorithms**: Basic concepts and motivation.  
+- **Algorithm Analysis**: Time and space complexity, performance measurement.  
+- **Data Structures**: Arrays, stacks, queues, linked lists.  
+- **Trees**: Binary trees, binary search trees, AVL, and red-black trees.  
+- **Graphs**: BFS, DFS, and basic graph algorithms.  
+- **Sets and Dictionaries**: Usage and implementation.  
+- **Hash Tables**: Collision handling and efficiency.  
+- **Divide-and-Conquer**: Concepts and applications.  
+
+### **Module 2: Advanced Topics (Second Semester)**  
+- **Algorithm Design**: Approaches for solving complex problems.  
+- **Dynamic Programming**: Breaking problems into subproblems.  
+- **Greedy Algorithms**: Step-by-step optimization.  
+- **Backtracking and Local Search**: Exploring and optimizing solution spaces.  
+- **Probabilistic Algorithms**: Using randomness effectively.  
+- **Heuristic and Approximation Algorithms**: Efficient near-optimal solutions.  
+
+---
+
+## 🚀 How to Use  
+
+1. **📖 Study the Notes**: Learn the theory behind each topic.  
+2. **💻 Explore Implementations**: Dive into code for hands-on practice.  
+3. **✅ Solve Exercises**: Test and improve your understanding.  
+
+Feel free to open issues or submit pull requests to contribute!  
